@@ -13,9 +13,30 @@ import {
   X,
   FileText,
   ExternalLink,
+  Layers,
+  Brain,
+  ScanLine,
+  Dna,
+  HeartPulse,
+  LockKeyhole,
+  Network,
+  Cpu,
+  MessageSquare,
 } from 'lucide-react'
 
 const GITHUB_PROFILE = 'https://github.com/alveeishraque'
+
+const researchInterestIcons = {
+  'Multi-Modal Machine Learning': Layers,
+  'Deep Learning Architectures': Brain,
+  'Medical Imaging': ScanLine,
+  Bioinformatics: Dna,
+  'AI in Healthcare': HeartPulse,
+  'Federated Learning': LockKeyhole,
+  'Computational Social Science': Network,
+  'AI/ML': Cpu,
+  'Natural Language Processing': MessageSquare,
+}
 
 export function Research({
   researchInterests = [],
@@ -123,19 +144,14 @@ These results support a modality-selective view of clinical fusion, in which the
               <div
                 key={interest}
                 className="
-                  flex items-center gap-3 py-3
-                  border-b border-[var(--research-underline)]
+                  flex items-center gap-4 py-3
+                  border-b border-dashed border-[var(--research-underline)]
                   group transition-colors duration-300
                 "
               >
-                <span
-                  className="
-                    w-1.5 h-1.5 rounded-full
-                    bg-accent shrink-0
-                    transition-transform
-                    group-hover:scale-125
-                  "
-                />
+              {React.createElement(researchInterestIcons[interest] || Layers, {
+                className: 'w-6 h-6 text-accent shrink-0 transition-transform group-hover:scale-110',
+              })}
 
                 <span
                   className="
@@ -171,7 +187,7 @@ These results support a modality-selective view of clinical fusion, in which the
           {/* Updated Thesis Card Styling */}
           <Card
             className="
-              group flex flex-col gap-4
+              group flex flex-col sm:flex-row gap-5
               rounded-2xl
               border border-line
               bg-card
@@ -179,77 +195,91 @@ These results support a modality-selective view of clinical fusion, in which the
               transition-all duration-300
               hover:border-accent/40
               hover:-translate-y-1
+              cursor-pointer
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent
             "
+            role="button"
+            tabIndex={0}
+            aria-label="View undergraduate thesis details"
+            onClick={() => setShowThesisDetails(true)}
+            onKeyDown={(event) => {
+              if (event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) {
+                event.preventDefault()
+                setShowThesisDetails(true)
+              }
+            }}
           >
-            {/* Category */}
-            <div className="flex items-center justify-between gap-3">
-              <Chip variant="default">
-                Multimodal Deep Learning
-              </Chip>
+            <img
+              src={`${import.meta.env.BASE_URL}undergrad%20thesis.png`}
+              alt="XEB-FuseNet model architecture"
+              className="w-full h-40 sm:w-1/3 sm:h-48 sm:self-center shrink-0 rounded-lg border border-line bg-white object-contain"
+            />
 
-              <span className="text-xs text-mute">
-                2025-2026
-              </span>
-            </div>
-
-            {/* Thesis Title */}
-            <h4
-              className="
-                text-base sm:text-lg
-                font-semibold text-fg
-                leading-relaxed
-                group-hover:text-accent-t
-                transition-colors duration-200
-              "
-            >
-              {thesis.title}
-            </h4>
-
-            {/* Description */}
-            <p className="text-sm text-mute leading-relaxed">
-              {thesis.shortDescription}
-            </p>
-
-            {/* Modalities */}
-            <div className="flex flex-wrap gap-2">
-              {thesis.modalities.map((modality) => (
-                <Chip key={modality} variant="skill">
-                  {modality}
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
+              {/* Category */}
+              <div className="flex items-center justify-between gap-3">
+                <Chip variant="default">
+                  Multimodal Deep Learning
                 </Chip>
-              ))}
-            </div>
 
-            {/* Actions */}
-            <div
-              className="
-                flex flex-wrap items-center justify-between
-                gap-3 pt-4
-                border-t border-line
-              "
-            >
-              <a
-                href={thesis.github}
-                target="_blank"
-                rel="noreferrer"
+                <span className="text-xs text-mute">
+                  2025-2026
+                </span>
+              </div>
+
+              {/* Thesis Title */}
+              <h4
                 className="
-                  inline-flex items-center gap-2
-                  text-sm text-mute
-                  hover:text-accent
-                  transition-colors
+                  text-base sm:text-lg
+                  font-semibold text-fg
+                  leading-relaxed
+                  group-hover:text-accent-t
+                  transition-colors duration-200
                 "
               >
-                <Github size={15} />
-                <span>GitHub Repository</span>
-                <ArrowUpRight size={13} />
-              </a>
+                {thesis.title}
+              </h4>
 
-              <Button
-                variant="secondary"
-                onClick={() => setShowThesisDetails(true)}
+              {/* Description */}
+              <p className="text-sm text-mute leading-relaxed">
+                {thesis.shortDescription}
+              </p>
+
+              {/* Modalities */}
+              <div className="flex flex-wrap gap-2">
+                {thesis.modalities.map((modality) => (
+                  <Chip key={modality} variant="skill">
+                    {modality}
+                  </Chip>
+                ))}
+              </div>
+
+              {/* Actions */}
+              <div
+                className="
+                  flex flex-wrap items-center justify-between
+                  gap-3 pt-4
+                  border-t border-line
+                "
               >
-                <span>Show More</span>
-                <ArrowUpRight size={14} />
-              </Button>
+                <a
+                  href={thesis.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(event) => event.stopPropagation()}
+                  className="
+                    inline-flex items-center gap-2
+                    text-sm text-mute
+                    hover:text-accent
+                    transition-colors
+                  "
+                >
+                  <Github size={15} />
+                  <span>GitHub Repository</span>
+                  <ArrowUpRight size={13} />
+                </a>
+
+              </div>
             </div>
           </Card>
         </div>
