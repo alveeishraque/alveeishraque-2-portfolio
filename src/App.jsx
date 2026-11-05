@@ -11,6 +11,7 @@ import { Research } from './components/sections/Research'
 import { Skills } from './components/sections/Skills'
 import { Extracurricular } from './components/sections/Extracurricular'
 import { Contact } from './components/sections/Contact'
+import { Footer } from './components/Footer'
 
 const SECTION_IDS = ['about', 'education', 'research', 'projects', 'skills', 'extra', 'contact']
 
@@ -55,6 +56,7 @@ export default function App() {
               profile={content.profile}
             />
           </main>
+          <Footer />
         </div>
       </div>
     </div>

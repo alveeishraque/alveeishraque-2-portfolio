@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: "Alvee Ishraq",
+  name: "Alvee Ishraque",
   role: "Computer Science Graduate | AI/ML Researcher",
   title: "AI/ML Researcher & Computer Science Graduate",
   tagline: "AI/ML Enthusiast.",
