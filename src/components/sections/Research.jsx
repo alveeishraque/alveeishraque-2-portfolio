@@ -209,23 +209,21 @@ These results support a modality-selective view of clinical fusion, in which the
               }
             }}
           >
-            <img
-              src={`${import.meta.env.BASE_URL}undergrad%20thesis.png`}
-              alt="XEB-FuseNet model architecture"
-              className="w-full h-40 sm:w-1/3 sm:h-48 sm:self-center shrink-0 rounded-lg border border-line bg-white object-contain"
-            />
+            <div className="flex w-full shrink-0 flex-col gap-3 sm:w-1/3">
+              <Chip variant="default" className="self-start">
+                Multimodal Deep Learning
+              </Chip>
+              <img
+                src={`${import.meta.env.BASE_URL}undergrad%20thesis.png`}
+                alt="XEB-FuseNet model architecture"
+                className="h-40 w-full rounded-lg border border-line bg-white object-contain sm:h-48"
+              />
+            </div>
 
             <div className="flex min-w-0 flex-1 flex-col gap-4">
-              {/* Category */}
-              <div className="flex items-center justify-between gap-3">
-                <Chip variant="default">
-                  Multimodal Deep Learning
-                </Chip>
-
-                <span className="text-xs text-mute">
-                  2025-2026
-                </span>
-              </div>
+              <span className="self-end text-xs text-mute">
+                2025-2026
+              </span>
 
               {/* Thesis Title */}
               <h4
@@ -257,7 +255,7 @@ These results support a modality-selective view of clinical fusion, in which the
               {/* Actions */}
               <div
                 className="
-                  flex flex-wrap items-center justify-between
+                  flex flex-wrap items-center justify-end
                   gap-3 pt-4
                   border-t border-line
                 "
@@ -278,7 +276,6 @@ These results support a modality-selective view of clinical fusion, in which the
                   <span>GitHub Repository</span>
                   <ArrowUpRight size={13} />
                 </a>
-
               </div>
             </div>
           </Card>
