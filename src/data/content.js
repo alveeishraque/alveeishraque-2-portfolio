@@ -6,6 +6,7 @@ export const content = {
     scholar: "https://scholar.google.com",
     github: "https://github.com/alveeishraque",
     linkedin: "https://www.linkedin.com/in/alvee-ishraque-366789236/",
+    youtube: "https://www.youtube.com/@alveeishraque9934",
     cv: `${import.meta.env.BASE_URL}resume.pdf`,
   },
   about: {
