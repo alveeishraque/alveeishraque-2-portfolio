@@ -73,12 +73,9 @@ export function Sidebar({ profile }) {
       </header>
 
       {/* Desktop Sidebar (> 820px) */}
-      <aside className="hidden desktop:flex sticky top-0 h-screen w-[260px] bg-side border-r border-line p-[56px_22px_16px] flex-col overflow-y-auto shrink-0 z-20">
+      <aside className="hidden desktop:flex sticky top-0 h-screen w-[260px] bg-side border-r border-line p-[56px_22px_16px] flex-col overflow-y-auto overflow-x-hidden shrink-0 z-20">
         {/* Profile Block */}
-        <div
-          className="flex flex-col items-center text-center animate-rise"
-          style={{ animationDelay: '0.05s' }}
-        >
+        <div className="flex flex-col items-center text-center">
           <Avatar size={100} hasRing={true} alt={profile.name} />
           <h1 className="mt-[12px] mb-[2px] text-[1.4rem] font-bold text-fg leading-tight">
             {profile.name}
@@ -101,7 +98,7 @@ export function Sidebar({ profile }) {
                 {link.isEmail && (
                   <span
                     role="tooltip"
-                    className="pointer-events-none absolute left-full top-1/2 z-50 ml-2 -translate-y-1/2 whitespace-nowrap rounded-md border border-line bg-card px-3 py-1.5 text-xs text-fg opacity-0 shadow-card transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                    className="pointer-events-none absolute left-0 top-full z-50 mt-1 w-full whitespace-normal rounded-md border border-line bg-card px-3 py-1.5 text-xs text-fg opacity-0 shadow-card transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
                   >
                     {profile.email}
                   </span>
