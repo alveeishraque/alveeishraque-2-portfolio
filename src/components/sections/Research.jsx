@@ -774,15 +774,14 @@ These results support a modality-selective view of clinical fusion, in which the
                 inline-flex items-center
                 justify-center gap-2
                 rounded-lg
-                border border-line
-                bg-card
-                px-5 py-3
+                border border-accent
+                bg-accent
+                px-3 py-2
                 text-sm font-medium
-                text-fg
+                text-bg
                 transition-all duration-300
-                hover:border-accent/50
-                hover:bg-hover
-                hover:text-accent
+                hover:border-accent-t
+                hover:bg-accent-t
               "
             >
               <Github size={16} />
