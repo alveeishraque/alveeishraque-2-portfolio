@@ -98,7 +98,7 @@ export function Sidebar({ profile }) {
                 {link.isEmail && (
                   <span
                     role="tooltip"
-                    className="pointer-events-none absolute left-0 top-full z-50 mt-1 w-full whitespace-normal rounded-md border border-line bg-card px-3 py-1.5 text-xs text-fg opacity-0 shadow-card transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                    className="hidden basis-full pl-[28px] text-xs leading-snug text-fg group-hover:block group-focus-visible:block"
                   >
                     {profile.email}
                   </span>
@@ -113,7 +113,7 @@ export function Sidebar({ profile }) {
                 onClick={copyEmail}
                 title={profile.email}
                 aria-label={`Copy email address ${profile.email}`}
-                className={`${linkClassName} w-full cursor-pointer border-0 bg-transparent text-left`}
+                className={`${linkClassName} w-full flex-wrap cursor-pointer border-0 bg-transparent text-left`}
               >
                 {content}
               </button>
